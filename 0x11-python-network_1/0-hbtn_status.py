@@ -4,15 +4,13 @@
 - uses urlib package
 """
 
-import urllib.request
 
-url = 'https://alx-intranet.hbtn.io/status'
+if __name__ == '__main__':
+    import urllib.request
 
-# Open the URL and read the response
-with urllib.request.urlopen(url) as response:
-    # Read the contents of the response as bytes
-    data = response.read()
-    # Decode the bytes to a string using the utf-8 encoding
-    data = data.decode('utf-8')
-    # Print the data
-    print(data)
+    with urllib.request.urlopen('https://alx-intranet.hbtn.io/status') as res:
+        content = res.read()
+        print("Body response:")
+        print("\t- type: {}".format(type(content)))
+        print("\t- content: {}".format(content))
+        print("\t- utf8 content: {}".format(content.decode('utf-8')))
